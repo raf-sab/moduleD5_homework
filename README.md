@@ -1,10 +1,10 @@
 # moduleD5_homework
 
-python -m venv venv
+- python -m venv venv
 
-venv\scripts\activate
+- venv\scripts\activate
 
-deactivate
+- deactivate
 
 
 
