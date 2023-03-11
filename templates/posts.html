@@ -14,9 +14,9 @@
 
 {% block count %}
     {% if is_paginated %}
-        Показано новостей: {{ posts|length}} из {{ page_obj.paginator.count }}
+        Показано публикаций: {{ posts|length }} из {{ page_obj.paginator.count }}
     {% else %}
-        Всего новостей: {{ posts|length }}
+        Всего публикаций: {{ posts|length }}
     {% endif %}
 {% endblock %}
 
