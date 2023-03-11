@@ -25,13 +25,21 @@ class PostList(DetailView):
 class PostsSearch(ListView):
     model = Post
     template_name = 'search.html'
-    context_object_name = 'filter'
+    context_object_name = 'posts'
     queryset = Post.objects.order_by('-id')
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filter'] = PostFilter(self.request.GET, queryset=self.get_queryset())
         return context
+
+    def get_filter(self):
+        return PostFilter(self.request.GET, queryset=super().get_queryset())
+
+    def get_queryset(self):
+        qs = self.get_filter().qs
+        return qs
 
 
 class PostsAdd(PermissionRequiredMixin, CreateView):
